@@ -21,7 +21,7 @@ namespace MyobExercise.Test
         }
 
         [TestMethod]
-        public void Calculate_for_AnnualSalary_0_18200()
+        public void Calculate_for_AnnualSalary_0_to_18200()
         {
             EmployeePayslipViewModel viewModel = new EmployeePayslipViewModel()
             {
@@ -75,7 +75,7 @@ namespace MyobExercise.Test
         }
 
         [TestMethod]
-        public void Calculate_for_AnnualSalary_37001_87000()
+        public void Calculate_for_AnnualSalary_37001_to_87000()
         {
             EmployeePayslipViewModel viewModel = new EmployeePayslipViewModel()
             {
@@ -101,7 +101,7 @@ namespace MyobExercise.Test
         }
 
         [TestMethod]
-        public void Calculate_for_AnnualSalary_87001_180000()
+        public void Calculate_for_AnnualSalary_87001_to_180000()
         {
             EmployeePayslipViewModel viewModel = new EmployeePayslipViewModel()
             {

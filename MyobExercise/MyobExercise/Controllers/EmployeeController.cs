@@ -21,7 +21,7 @@ namespace MyobExercise.Controllers
 
         public ActionResult EmployeeForm()
         {
-            var paymentDates = _dbContext.Set<PaymentDate>().ToList();
+            var paymentDates = _dbContext.GetPaymentDates().ToList();
             var viewModel = new EmployeePayslipViewModel {
                 PaymenDates = paymentDates.OrderBy( p => p.MonthSeqInYear).ToList()
             };
@@ -34,7 +34,7 @@ namespace MyobExercise.Controllers
 
             if (!ModelState.IsValid)
             {
-                viewModel.PaymenDates = _dbContext.Set<PaymentDate>().ToList();
+                viewModel.PaymenDates = _dbContext.GetPaymentDates().ToList();
                 return View("EmployeeForm", viewModel);
             }
             else
@@ -51,7 +51,7 @@ namespace MyobExercise.Controllers
         }
         public decimal CalculateIncomeTax(decimal annualSalary) {
             
-            var taxinfo = _dbContext.Set<Tax>().Where(t => t.MinimumPay <= annualSalary && t.MaximumPay >= annualSalary).FirstOrDefault();
+            var taxinfo = _dbContext.GetTaxes().Where(t => t.MinimumPay <= annualSalary && t.MaximumPay >= annualSalary).FirstOrDefault();
 
             decimal incomeTax = 0;
 
@@ -70,7 +70,7 @@ namespace MyobExercise.Controllers
 
             else {
 
-                var otherTaxInfo = _dbContext.Set<Tax>().Where(t => t.MinimumPay <= annualSalary && t.MaximumPay == 0).FirstOrDefault();
+                var otherTaxInfo = _dbContext.GetTaxes().Where(t => t.MinimumPay <= annualSalary && t.MaximumPay == 0).FirstOrDefault();
                 decimal calculateIncomeTax = 0;
                 calculateIncomeTax = ((otherTaxInfo.Rate) + ((annualSalary - (otherTaxInfo.MinimumPay - 1)) * (otherTaxInfo.Surplus))) / 12;
                 incomeTax = Math.Round(calculateIncomeTax, 0, MidpointRounding.AwayFromZero);
@@ -94,7 +94,7 @@ namespace MyobExercise.Controllers
         public decimal CalculateNetIncome(decimal grossIncome, decimal IncomeTax)
         {
             decimal netIncome = 0;
-            if (grossIncome != default(decimal) && IncomeTax != default(decimal)) {
+            if (grossIncome != default(decimal) && (IncomeTax != default(decimal) || IncomeTax == 0)) {
                 netIncome = Math.Round((grossIncome-IncomeTax), 0, MidpointRounding.AwayFromZero);
             }
             return netIncome;
@@ -103,7 +103,7 @@ namespace MyobExercise.Controllers
         public decimal CalculateSuper(decimal grossIncome, decimal superRate)
         {
             decimal super = 0;
-            if (grossIncome != null && superRate != null)
+            if (grossIncome != default(decimal) && superRate != default(decimal))
             {
                 super = Math.Round((grossIncome * (superRate/100)), 0, MidpointRounding.AwayFromZero);
             }
@@ -115,7 +115,7 @@ namespace MyobExercise.Controllers
             string PaymentDateDescription= string.Empty;
             if (PaymentDateId != null)
             {
-                 PaymentDateDescription = _dbContext.Set<PaymentDate>().Where(t => t.Id == PaymentDateId).Select(t => t.Description).FirstOrDefault().ToString();
+                 PaymentDateDescription = _dbContext.GetPaymentDates().Where(t => t.Id == PaymentDateId).Select(t => t.Description).FirstOrDefault().ToString();
             }
             return PaymentDateDescription;
         }

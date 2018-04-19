@@ -17,5 +17,20 @@ namespace MyobExercise.Context
         public DbSet<Tax> Taxes { get; set; }
 
         public DbSet<PaymentDate> PaymentDates { get; set; }
+
+
+
+        public List<Tax> GetTaxes()
+        {
+            return Taxes.ToList();
+        }
+        public List<Employee> GetEmployees()
+        {
+            return Employees.ToList();
+        }
+        public List<PaymentDate> GetPaymentDates()
+        {
+            return PaymentDates.ToList();
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyobExercise.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
@@ -19,6 +20,13 @@ namespace MyobExercise.Context.Interface
         Task<int> SaveChangesAsync();
 
         void Dispose();
+
+        List<Tax> GetTaxes();
+
+        List<Employee> GetEmployees();
+
+        List<PaymentDate> GetPaymentDates();
+
     }
 }
 

@@ -1,0 +1,48 @@
+﻿@model MyobExercise.ViewModels.EmployeePayslipViewModel
+@{
+    ViewBag.Title = "PayslipResults";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p class="marginClass">
+    <h5 style="color:forestgreen;">
+        <b>
+            Pasyslip for: @Model.Name<br/>
+            <br/>Pay Period: @Model.PaymentDateDescription
+        </b>
+    </h5>
+</p>
+<table class="table">
+    <tr>
+        <td>
+            AnnualSalary
+        </td>
+        <td>@Model.Employee.AnnualSalary</td>
+    </tr>
+    <tr>
+        <td>
+            Gross Income
+        </td>
+        <td>@Model.GrossIncome</td>
+    </tr>
+    <tr>
+        <td>
+            Income Tax
+        </td>
+        <td>@Model.IncomeTax</td>
+    </tr>
+    <tr>
+        <td>
+            Net Income
+        </td>
+        <td>@Model.NetIncome</td>
+    </tr>
+    <tr>
+        <td>
+            Super
+        </td>
+        <td>@Model.Super</td>
+    </tr>
+
+
+</table>

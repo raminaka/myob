@@ -1,0 +1,44 @@
+﻿@model MyobExercise.ViewModels.EmployeePayslipViewModel
+@{
+    ViewBag.Title = "EmployeeForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Calculate", "Employee"))
+{
+
+      <div class="form-group marginClass">
+          @Html.LabelFor(m => m.Employee.FirstName)
+          <br />
+          @Html.TextBoxFor(m => m.Employee.FirstName, new { @class = "form-Control" })
+          @Html.ValidationMessageFor(m => m.Employee.FirstName)
+      </div>
+
+      <div class="form-group">
+          @Html.LabelFor(m => m.Employee.LastName)
+          <br />
+          @Html.TextBoxFor(m => m.Employee.LastName, new { @class = "form-Control" })
+          @Html.ValidationMessageFor(m => m.Employee.LastName)
+      </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Employee.AnnualSalary)
+        <br />
+        @Html.TextBoxFor(m => m.Employee.AnnualSalary, new { @class = "form-Control" })
+        @Html.ValidationMessageFor(m => m.Employee.AnnualSalary)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Employee.SuperRate)
+        <br />
+        @Html.TextBoxFor(m => m.Employee.SuperRate, new { @class = "form-Control" })
+        @Html.ValidationMessageFor(m => m.Employee.SuperRate)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Employee.PaymentDateId)
+        <br />
+        @Html.DropDownListFor(m => m.Employee.PaymentDateId, new SelectList(Model.PaymenDates, "Id", "Description"), "Select a Payment Date", new { @class = "form-Control" })
+        @Html.ValidationMessageFor(m => m.Employee.PaymentDateId)
+    </div>
+    <br />
+<button type="submit" class="btn btn-primary">Calculate</button>
+}

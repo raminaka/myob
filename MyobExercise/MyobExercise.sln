@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyobExercise", "MyobExercise\MyobExercise.csproj", "{E979ED6C-FFD3-4452-BA18-D0034B817581}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyobExercise.Test", "MyobExercise.Test\MyobExercise.Test.csproj", "{33C5D868-936A-4A83-9BF9-8E469C218E00}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E979ED6C-FFD3-4452-BA18-D0034B817581}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E979ED6C-FFD3-4452-BA18-D0034B817581}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E979ED6C-FFD3-4452-BA18-D0034B817581}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E979ED6C-FFD3-4452-BA18-D0034B817581}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33C5D868-936A-4A83-9BF9-8E469C218E00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33C5D868-936A-4A83-9BF9-8E469C218E00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33C5D868-936A-4A83-9BF9-8E469C218E00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33C5D868-936A-4A83-9BF9-8E469C218E00}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DAF63E62-8F5E-49DE-8DAE-2872B36285B0}
+	EndGlobalSection
+EndGlobal
